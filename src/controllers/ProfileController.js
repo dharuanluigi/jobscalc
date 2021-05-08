@@ -1,13 +1,13 @@
-const Profile = require('../model/Profile')
+const Profile = require('../models/Profile')
 
 module.exports = {
     async profilePage(req, res) {
         const profile_data = await Profile.get()
         return res.render('profile', { profile: profile_data })
     },
-    updateUserData(req, res) {
-        
-        console.log(req.body)
+    async updateUserData(req, res) {
+
+        await Profile.update(req.body)
 
         return res.send('ok')
     }
