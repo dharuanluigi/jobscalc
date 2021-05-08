@@ -1,4 +1,5 @@
 const Profile = require('../models/Profile')
+const ProfileUtils = require('../utils/ProfileUtils')
 
 module.exports = {
     async profilePage(req, res) {
@@ -7,8 +8,8 @@ module.exports = {
     },
     async updateUserData(req, res) {
 
-        await Profile.update(req.body)
+        await Profile.update(ProfileUtils.calcHourValue(req.body))
 
-        return res.send('ok')
+        return res.redirect('/profile')
     }
 }
