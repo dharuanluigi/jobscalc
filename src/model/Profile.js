@@ -12,5 +12,8 @@ module.exports = {
         await connector.close()
 
         return profile_data
+    },
+    async update() {
+        
     }
 }

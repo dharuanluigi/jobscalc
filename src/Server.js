@@ -1,13 +1,13 @@
-const Express = require('express')
+const express = require('express')
 const routes = require('./Router')
-const Server = Express()
+const Server = express()
 const port = 3000
 
 // config routes file
 Server.use(routes)
 
 // config url body content
-Server.use(Express.urlencoded({ extended: true }))
+Server.use(express.urlencoded({ extended: true }))
 
 // change default views directory
 Server.set('views', `${__dirname}/views/`)
@@ -16,7 +16,7 @@ Server.set('views', `${__dirname}/views/`)
 Server.set('view engine', 'ejs')
 
 // config public directory
-Server.use(Express.static('public'))
+Server.use(express.static('public'))
 
 // serving at
 Server.listen(port, () => console.log(`Looking at: http://localhost:${port}`))

@@ -5,7 +5,10 @@ module.exports = {
         const profile_data = await Profile.get()
         return res.render('profile', { profile: profile_data })
     },
-    async update(req, res) {
+    updateUserData(req, res) {
         
+        console.log(req.body)
+
+        return res.send('ok')
     }
 }
