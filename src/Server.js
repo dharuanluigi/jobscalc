@@ -3,9 +3,6 @@ const routes = require('./Router')
 const Server = express()
 const port = 3000
 
-// config routes file
-Server.use(routes)
-
 // config url body content
 Server.use(express.urlencoded({ extended: true }))
 
