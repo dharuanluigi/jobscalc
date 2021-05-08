@@ -1,4 +1,4 @@
-const Profile = require('../model/Profile')
+const Profile = require('../models/Profile')
 
 module.exports = {
     async index(req, res) {
