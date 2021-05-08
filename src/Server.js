@@ -18,5 +18,8 @@ Server.set('view engine', 'ejs')
 // config public directory
 Server.use(express.static('public'))
 
+// config routes file
+Server.use(routes)
+
 // serving at
 Server.listen(port, () => console.log(`Looking at: http://localhost:${port}`))
