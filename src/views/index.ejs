@@ -93,7 +93,7 @@
               </div>
               <div class="amount column">
                 <span>Valor</span>
-                <p>R$ <%= job.budget %> </p>
+                <p>R$ <%= job.budget.toFixed(2).replace('.',',') %> </p>
               </div>
               <div class="status badge column">
                 <%= job.status === 'done' ? 'Encerrado' : 'Em andamento' %> 
@@ -101,7 +101,7 @@
               <div class="actions column flex">
                 <p class="sr-only">Ações</p>
                 <a 
-                  href="/job" 
+                  href="/job/<%= job.id %>" 
                   class="button white edit" 
                   title="Editar Job">
                   <img src="/images/edit-24.svg" alt="Editar Job" />
@@ -136,8 +136,8 @@
         </footer>
       </div>
       <form 
-        method="post" 
-        action="/job/delete" 
+        method="POST" 
+        action="/job/delete"
         id="delete-job"></form>
     </div>
     <!-- end modal-wrapper -->
