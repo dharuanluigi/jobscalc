@@ -8,7 +8,8 @@ module.exports = {
             total_hours: Number(job_data['total-hours']),
             created_at: Number(job_data.created_at),
             dueDate: Number(job_data.dueDate),
-            budget: Number(job_data.budget)
+            budget: Number(job_data.budget),
+            status: job_data.status
         }
     },
     calcDueDate(job_data) {
@@ -36,7 +37,8 @@ module.exports = {
 
         return {
             ...job_data,
-            dueDate: delivery_day
+            dueDate: delivery_day,
+            status: delivery_day > 0 ? 'progress' : 'done'
         }
     },
     async calcBudget(job_data) {
