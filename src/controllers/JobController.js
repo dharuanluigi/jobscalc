@@ -5,8 +5,11 @@ module.exports = {
     addJobPage(req, res) {
         return res.render('job')
     },
-    editJobPage(req, res) {
-        return res.render('job-edit')
+    async editJobPage(req, res) {
+
+        const job = await Job.get(req.params.id)
+
+        return res.render('job-edit', { job })
     },
     async addNewJob(req, res) {
 
@@ -21,5 +24,9 @@ module.exports = {
     },
     async getAllJobs() {
         return await Job.getAll()
+    },
+    async delJob(req, res) {
+        await Job.delete(req.params.id)
+        return res.redirect('/')
     }
 }
