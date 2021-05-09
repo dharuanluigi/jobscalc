@@ -14,5 +14,6 @@ router.get('/job/:id', JobController.editJobPage)
 router.post('/profile', ProfileController.updateUserData)
 router.post('/job', JobController.addNewJob)
 router.post('/job/delete/:id', JobController.delJob)
+router.post('/job/:id', JobController.editJob)
 
 module.exports = router
