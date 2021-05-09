@@ -1,5 +1,5 @@
-const JobUtils = require('../utils/JobUtils')
 const Job = require('../models/Job')
+const JobUtils = require('../utils/JobUtils')
 
 module.exports = {
     addJobPage(req, res) {
@@ -13,5 +13,8 @@ module.exports = {
         await Job.add(JobUtils.dataNormalizer(JobUtils.calcDueDate(await JobUtils.calcBudget(req.body))))
         
         return res.redirect('/')
+    },
+    async getAllJobs() {
+        return await Job.getAll()
     }
 }
