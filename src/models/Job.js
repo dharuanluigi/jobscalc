@@ -17,5 +17,16 @@ module.exports = {
         `)
 
         await connector.close()
-    }
+    },
+    async getAll() {
+        const connector = await Database()
+
+        const jobs = await connector.all(`
+            SELECT * FROM Jobs;
+        `)
+
+        await connector.close()
+
+        return jobs
+    },
 }
