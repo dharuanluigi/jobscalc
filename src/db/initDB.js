@@ -5,6 +5,8 @@ const initDB_DEV = {
     async init() {
         await this.createProfile()
         await this.insertDefaultProfile()
+        await this.createJobs()
+        await this.insertDefaultJobs()
     },
     async createProfile() {
         const connector = await Database()
@@ -32,12 +34,46 @@ const initDB_DEV = {
                 NULL,
                 "Dharuan Luigi",
                 "https://github.com/dharuanluigi.png",
-                3000,
-                8,
-                5,
-                4,
-                50
+                0,
+                0,
+                0,
+                0,
+                0
           );
+        `)
+
+        await connector.close()
+    },
+    async createJobs() {
+        const connector = await Database()
+
+        await connector.run(`
+            CREATE TABLE Jobs (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT,
+                daily_hours INT,
+                total_hours INT,
+                created_at DATETIME,
+                dueDate INT,
+                budget FLOAT
+            );
+        `)
+
+        await connector.close()
+    },
+    async insertDefaultJobs() {
+        const connector = await Database()
+
+        await connector.run(`
+            INSERT INTO Jobs VALUES (
+                NULL,
+                "Pizzaria Guloso OverPower",
+                0,
+                0,
+                1620517789137,
+                0,
+                0
+            );
         `)
 
         await connector.close()
