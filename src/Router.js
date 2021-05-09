@@ -12,5 +12,6 @@ router.get('/job/:id', JobController.editJobPage)
 
 // POST
 router.post('/profile', ProfileController.updateUserData)
+router.post('/job', JobController.addNewJob)
 
 module.exports = router
