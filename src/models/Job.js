@@ -19,6 +19,18 @@ module.exports = {
 
         await connector.close()
     },
+    async get(id) {
+        const connector = await Database()
+
+        const job = await connector.get(`
+            SELECT * FROM Jobs
+            WHERE id = ${Number(id)};
+        `)
+
+        await connector.close()
+
+        return job
+    },
     async getAll() {
         const connector = await Database()
 
@@ -30,4 +42,14 @@ module.exports = {
 
         return jobs
     },
+    async delete(id) {
+        const connector = await Database()
+
+        await connector.run(`
+            DELETE FROM Jobs
+            WHERE id = ${Number(id)};
+        `)
+
+        await connector.close()
+    }
 }
