@@ -78,7 +78,7 @@
 
         <div class="cards">
           <% jobs.forEach((job) => { %>
-            <div class="card done" data-id="<%= job.id %>">
+            <div class="card <%= job.status %>" data-id="<%= job.id %>">
               <div class="id column"><%= job.id %></div>
               <div class="name column">
                 <%= job.name %>
@@ -96,7 +96,7 @@
                 <p>R$ <%= job.budget %> </p>
               </div>
               <div class="status badge column">
-                Encerrado
+                <%= job.status === 'done' ? 'Encerrado' : 'Em andamento' %> 
               </div>
               <div class="actions column flex">
                 <p class="sr-only">Ações</p>
