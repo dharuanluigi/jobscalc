@@ -24,7 +24,7 @@ module.exports = {
         const monthly_total_hours = week_total_hours * weeks_per_month
 
         // value of a worked hour
-        const hour_value = Number(profile_data['monthly-budget']) / monthly_total_hours
+        const hour_value = (Number(profile_data['monthly-budget']) / monthly_total_hours).toFixed(2)
 
         return {
             ...profile_data,
