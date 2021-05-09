@@ -12,7 +12,8 @@ module.exports = {
                 ${job_data.total_hours},
                 ${job_data.created_at},
                 ${job_data.dueDate},
-                ${job_data.budget}
+                ${job_data.budget},
+                "${job_data.status}"
             );
         `)
 
