@@ -31,6 +31,32 @@ module.exports = {
 
         return job
     },
+    async delete(id) {
+        const connector = await Database()
+
+        await connector.run(`
+            DELETE FROM Jobs
+            WHERE id = ${Number(id)};
+        `)
+
+        await connector.close()
+    },
+    async edit(new_job_data, id) {
+        const connector = await Database()
+
+        await connector.run(`
+            UPDATE Jobs SET
+                name = "${new_job_data.name}",
+                daily_hours = ${new_job_data.daily_hours},
+                total_hours = ${new_job_data.total_hours},
+                dueDate = ${new_job_data.dueDate},
+                budget = ${new_job_data.budget},
+                status = "${new_job_data.status}"
+            WHERE id = ${Number(id)};
+        `)
+
+        await connector.close()
+    },
     async getAll() {
         const connector = await Database()
 
@@ -42,14 +68,4 @@ module.exports = {
 
         return jobs
     },
-    async delete(id) {
-        const connector = await Database()
-
-        await connector.run(`
-            DELETE FROM Jobs
-            WHERE id = ${Number(id)};
-        `)
-
-        await connector.close()
-    }
 }
