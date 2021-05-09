@@ -29,10 +29,14 @@
       <div class="container">
         <section id="top" class="animate-up">
           <h2 class="sr-only">Homepage</h2>
-          <img id="logo" src="./images/logo.svg" alt="Logo" />
+          <img id="logo" src="/images/logo.svg" alt="Logo" />
           <span id="notification">
-            <img src="./images/alert-octagon.svg" alt="Alerta" />
-            Você tem 2 horas livres no seu dia
+            <img src="/images/alert-octagon.svg" alt="Alerta" />
+            <% if(status_panel.free_time > 0) { %>
+                Você tem <%= status_panel.free_time %> horas livres no seu dia
+            <% } else { %>
+                Você não tem horas livres
+            <% } %> 
           </span>
           <a href="/profile" id="avatar-profile">
             <p><%= profile.name %> <span>Ver perfil</span></p>
@@ -50,21 +54,21 @@
 
           <div class="info">
             <div class="total">
-              <strong>12</strong>
+              <strong><%= status_panel.total_projects %></strong>
               Projetos ao total
             </div>
             <div class="in-progress">
-              <strong>7</strong>
+              <strong><%= status_panel.progress %></strong>
               Em andamento
             </div>
             <div class="finished">
-              <strong>4</strong>
+              <strong><%= status_panel.done %></strong>
               Encerrados
             </div>
           </div>
           <a class="button orange" href="/job">
             <span>
-              <img src="./images/plus-24.svg" alt="Novo Job" /> 
+              <img src="/images/plus-24.svg" alt="Novo Job" /> 
             </span>
             Adicionar novo job
           </a>
