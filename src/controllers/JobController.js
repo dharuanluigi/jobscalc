@@ -18,15 +18,28 @@ module.exports = {
             created_at: Date.now()
         }
 
-        await Job.add(JobUtils.dataNormalizer(JobUtils.calcDueDate(await JobUtils.calcBudget(job))))
+        await Job.add(JobUtils.dataNormalizerInsert(JobUtils.calcDueDate(await JobUtils.calcBudget(job))))
         
         return res.redirect('/')
-    },
-    async getAllJobs() {
-        return await Job.getAll()
     },
     async delJob(req, res) {
         await Job.delete(req.params.id)
         return res.redirect('/')
-    }
+    },
+    async editJob(req, res) {
+        
+        const old_job = await Job.get(req.params.id)
+
+        const new_job = {
+            ...req.body,
+            created_at: old_job.created_at
+        }
+
+        await Job.edit(JobUtils.dataNormalizerUpdate(JobUtils.calcDueDate(await JobUtils.calcBudget(new_job))), req.params.id)
+
+        return res.redirect(`/job/${req.params.id}`)
+    },
+    async getAllJobs() {
+        return await Job.getAll()
+    },
 }
