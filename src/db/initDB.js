@@ -55,7 +55,8 @@ const initDB_DEV = {
                 total_hours INT,
                 created_at DATETIME,
                 dueDate INT,
-                budget FLOAT
+                budget FLOAT,
+                status TEXT
             );
         `)
 
@@ -72,7 +73,8 @@ const initDB_DEV = {
                 0,
                 1620517789137,
                 0,
-                0
+                0,
+                "progress"
             );
         `)
 
