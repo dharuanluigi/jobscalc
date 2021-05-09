@@ -11,5 +11,8 @@ module.exports = {
         await Profile.update(ProfileUtils.calcHourValue(req.body))
 
         return res.redirect('/profile')
+    },
+    async getProfileData() {
+        return await Profile.get()
     }
 }
