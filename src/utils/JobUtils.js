@@ -1,12 +1,22 @@
 const ProfileController = require('../controllers/ProfileController')
 
 module.exports = {
-    dataNormalizer(job_data) {
+    dataNormalizerInsert(job_data) {
         return {
             name: job_data.name,
             daily_hours: Number(job_data['daily-hours']),
             total_hours: Number(job_data['total-hours']),
             created_at: Number(job_data.created_at),
+            dueDate: Number(job_data.dueDate),
+            budget: Number(job_data.budget),
+            status: job_data.status
+        }
+    },
+    dataNormalizerUpdate(job_data) {
+        return {
+            name: job_data.name,
+            daily_hours: Number(job_data['daily-hours']),
+            total_hours: Number(job_data['total-hours']),
             dueDate: Number(job_data.dueDate),
             budget: Number(job_data.budget),
             status: job_data.status
