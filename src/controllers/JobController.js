@@ -10,7 +10,12 @@ module.exports = {
     },
     async addNewJob(req, res) {
 
-        await Job.add(JobUtils.dataNormalizer(JobUtils.calcDueDate(await JobUtils.calcBudget(req.body))))
+        const job = {
+            ...req.body,
+            created_at: Date.now()
+        }
+
+        await Job.add(JobUtils.dataNormalizer(JobUtils.calcDueDate(await JobUtils.calcBudget(job))))
         
         return res.redirect('/')
     },
