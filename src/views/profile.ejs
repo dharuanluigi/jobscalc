@@ -22,7 +22,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
-
+  <script src="scripts/profile.js" defer type="module"></script>
 </head>
 
 <body id="page-profile">
@@ -38,7 +38,7 @@
           O valor da sua hora é
           <strong>R$ <%= profile.hour_value.toFixed(2).replace('.',',') %></strong>
         </p>
-        <button class="button green" form="form-profile" type="submit">Salvar dados</button>
+        <button id="btnSave" class="button green" form="form-profile" type="submit">Salvar dados</button>
       </aside>
       <main>
 
