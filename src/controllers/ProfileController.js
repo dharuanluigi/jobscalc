@@ -1,5 +1,7 @@
 const Profile = require('../models/Profile')
 const ProfileUtils = require('../utils/ProfileUtils')
+// functions that are used one more place, like check fields.
+const GeneralUtils = require('../utils/Utils')
 
 module.exports = {
     async profilePage(req, res) {
@@ -7,8 +9,8 @@ module.exports = {
         return res.render('profile', { profile: profile_data })
     },
     async updateUserData(req, res) {
-        
-        if(!ProfileUtils.checkFields(req.body)) {
+        // verify if fields had empty data
+        if(!GeneralUtils.checkFields(req.body)) {
             await Profile.update(ProfileUtils.calcHourValue(req.body))
             return res.redirect('/profile')
         } 
