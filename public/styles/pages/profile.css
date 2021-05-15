@@ -2,6 +2,10 @@
   display: flex;
 }
 
+div.input-wrapper {
+  width: 100%;
+}
+
 aside.card {
   background: var(--color-card-background);
   color: var(--color-card-title);
