@@ -7,10 +7,14 @@ module.exports = {
         return res.render('profile', { profile: profile_data })
     },
     async updateUserData(req, res) {
-
-        await Profile.update(ProfileUtils.calcHourValue(req.body))
-
-        return res.redirect('/profile')
+        
+        if(!ProfileUtils.checkFields(req.body)) {
+            await Profile.update(ProfileUtils.calcHourValue(req.body))
+            return res.redirect('/profile')
+        } 
+        else {
+            return res.redirect('/profile')
+        }
     },
     async getProfileData() {
         return await Profile.get()
