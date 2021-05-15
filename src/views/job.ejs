@@ -22,6 +22,8 @@
       rel="stylesheet"
     />
     
+    <script src="scripts/job.js" defer type="module"></script>
+
   </head>
   <body id="page-job">
     
@@ -36,7 +38,7 @@
 
             <div class="input-wrapper">
               <label for="name">Nome do Job</label>
-              <input type="text" id="name" name="name" />
+              <input type="text" id="name" name="name" placeholder="Digite aqui o nome do Job..."/>
             </div>
 
             <div class="input-group">
@@ -45,9 +47,11 @@
                   por dia vai dedicar ao job?</label>
                 <input 
                   type="number"
+                  min="0"
                   step="0.1" 
                   id="daily-hours" 
-                  name="daily-hours"/>
+                  name="daily-hours"
+                  placeholder="Quantas horas por dia?"/>
               </div>
 
               <div class="input-wrapper">
@@ -55,8 +59,10 @@
                   horas para esse Job?</label>
                 <input 
                   type="number"
+                  min="0"
                   id="total-hours" 
-                  name="total-hours" />
+                  name="total-hours" 
+                  placeholder="Qual total de horas?"/>
               </div>
             </div>
           </fieldset>
@@ -74,7 +80,8 @@
             class="button green" 
             form="form-job" 
             type="submit" 
-            title="Salvar Dados">Salvar</button>
+            title="Salvar Dados"
+            id="btnSave">Salvar</button>
           <a 
             href="/" 
             class="button gray">
