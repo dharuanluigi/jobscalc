@@ -1,5 +1,7 @@
 const Job = require('../models/Job')
 const JobUtils = require('../utils/JobUtils')
+// functions that use generally or much more a place// like check information fields are empty
+const GeneralUtils = require('../utils/Utils')
 
 module.exports = {
     addJobPage(req, res) {
@@ -13,14 +15,18 @@ module.exports = {
     },
     async addNewJob(req, res) {
 
-        const job = {
-            ...req.body,
-            created_at: Date.now()
+        if(!GeneralUtils.checkFields(req.body)) {
+            const job = {
+                ...req.body,
+                created_at: Date.now()
+            }
+            await Job.add(JobUtils.dataNormalizerInsert(JobUtils.calcDueDate(await JobUtils.calcBudget(job))))
+            
+            return res.redirect('/')
         }
-
-        await Job.add(JobUtils.dataNormalizerInsert(JobUtils.calcDueDate(await JobUtils.calcBudget(job))))
-        
-        return res.redirect('/')
+        else {
+            return res.redirect('/job')
+        }
     },
     async delJob(req, res) {
         await Job.delete(req.params.id)
