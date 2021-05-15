@@ -8,13 +8,10 @@ module.exports = {
         return res.render('job')
     },
     async editJobPage(req, res) {
-
         const job = await Job.get(req.params.id)
-
-        return res.render('job-edit', { job })
+            return res.render('job-edit', { job })
     },
     async addNewJob(req, res) {
-
         if(!GeneralUtils.checkFields(req.body)) {
             const job = {
                 ...req.body,
@@ -33,17 +30,21 @@ module.exports = {
         return res.redirect('/')
     },
     async editJob(req, res) {
-        
-        const old_job = await Job.get(req.params.id)
+        if(!GeneralUtils.checkFields(req.body)) {
+            const old_job = await Job.get(req.params.id)
 
-        const new_job = {
-            ...req.body,
-            created_at: old_job.created_at
+            const new_job = {
+                ...req.body,
+                created_at: old_job.created_at
+            }
+            
+            await Job.edit(JobUtils.dataNormalizerUpdate(JobUtils.calcDueDate(await JobUtils.calcBudget(new_job))), req.params.id)
+
+            return res.redirect(`/job/${req.params.id}`)
         }
-
-        await Job.edit(JobUtils.dataNormalizerUpdate(JobUtils.calcDueDate(await JobUtils.calcBudget(new_job))), req.params.id)
-
-        return res.redirect(`/job/${req.params.id}`)
+        else {
+            return res.redirect(`/job/${req.params.id}`)
+        }
     },
     async getAllJobs() {
         return await Job.getAll()
