@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="/styles/partials/forms.css" />
   <link rel="stylesheet" href="/styles/partials/animations.css" />
   <link rel="stylesheet" href="/styles/pages/profile.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
 
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
@@ -50,12 +52,12 @@
             <div class="input-group">
               <div class="input-wrapper">
                 <label for="name">Nome</label>
-                <input type="text" id="name" name="name" value="<%= profile.name %>" />
+                <input type="text" id="name" name="name" value="<%= profile.name %>" placeholder="Digite seu nome aqui..."/>
               </div>
 
               <div class="input-wrapper">
                 <label for="avatar">Link da foto</label>
-                <input placeholder="https://" type="url" id="avatar" name="avatar" value="<%= profile.avatar %>" />
+                <input placeholder="https://..." type="url" id="avatar" name="avatar" value="<%= profile.avatar %>" />
               </div>
             </div>
           </fieldset>
@@ -67,7 +69,7 @@
             <div class="input-group">
               <div class="input-wrapper">
                 <label for="monthly-budget">Quanto eu <br />quero ganhar por mês?</label>
-                <input type="amount" step="0.1" id="monthly-budget" name="monthly-budget" placeholder="R$" value="<%= profile.monthy_budget %>"/>
+                <input type="number" step="0.1" id="monthly-budget" name="monthly-budget" placeholder="R$" value="<%= profile.monthy_budget %>"/>
               </div>
 
               <div class="input-wrapper">
