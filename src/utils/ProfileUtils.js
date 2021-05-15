@@ -30,5 +30,17 @@ module.exports = {
             ...profile_data,
             hour_value
         }
+    },
+    checkFields(fields) {
+        let isEmpty = false
+
+        // verify if a field has an empty value
+        Object.keys(fields).forEach((field) => {
+            if(!fields[field]) {
+                isEmpty = true 
+            }
+        })
+
+        return isEmpty
     }
 }
