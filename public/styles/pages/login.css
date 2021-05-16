@@ -1,0 +1,20 @@
+#form-login {
+    min-width: 320px;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 150px;
+}
+form {
+    border: 3px solid gray;
+    border-radius: 15px;
+    width: 100%;
+    padding: 30px;
+}
+div.fields {
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+div input {
+    width: 100%;
+}
