@@ -5,12 +5,13 @@ const ProfileController = require('./controllers/ProfileController')
 const JobController = require('./controllers/JobController')
 
 // GETS
-router.get('/', DashboardController.index)
+router.get('/', DashboardController.loginPage)
 router.get('/profile', ProfileController.profilePage)
 router.get('/job', JobController.addJobPage)
 router.get('/job/:id', JobController.editJobPage)
 
 // POST
+router.post('/', DashboardController.index)
 router.post('/profile', ProfileController.updateUserData)
 router.post('/job', JobController.addNewJob)
 router.post('/job/delete/:id', JobController.delJob)
