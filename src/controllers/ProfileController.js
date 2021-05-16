@@ -5,20 +5,24 @@ const GeneralUtils = require('../utils/Utils')
 
 module.exports = {
     async profilePage(req, res) {
-        const profile_data = await Profile.get()
+        const profile_data = await Profile.get(req.session.data.user_id)
         return res.render('profile', { profile: profile_data })
     },
     async updateUserData(req, res) {
         // verify if fields had empty data
         if(!GeneralUtils.checkFields(req.body)) {
-            await Profile.update(ProfileUtils.calcHourValue(req.body))
+            await Profile.update(ProfileUtils.calcHourValue(req.body), req.session.data.user_id)
             return res.redirect('/profile')
         } 
         else {
             return res.redirect('/profile')
         }
     },
-    async getProfileData() {
-        return await Profile.get()
+    async getProfileData(user_id) {
+        return await Profile.get(user_id)
+    },
+    async login(login_data) {
+        const login = await Profile.login(login_data)
+        return login
     }
 }
