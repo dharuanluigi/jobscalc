@@ -20,7 +20,9 @@ const initDB_DEV = {
                 hours_per_day INT,
                 days_per_week INT,
                 vacation_per_year INT,
-                hour_value FLOAT
+                hour_value FLOAT,
+                login TEXT,
+                password TEXT
             );
         `)
 
@@ -38,7 +40,9 @@ const initDB_DEV = {
                 0,
                 0,
                 0,
-                0
+                0,
+                "adm",
+                123
           );
         `)
 
