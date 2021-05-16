@@ -1,10 +1,18 @@
 const express = require('express')
+const session = require('express-session')
 const routes = require('./Router')
 const Server = express()
 const port = 3000
 
 // config url body content
 Server.use(express.urlencoded({ extended: true }))
+
+// config session
+Server.use(session({
+    secret: '5d44540598c8ab90f4b75de58618b1dcc3967cf6498c439bdce14fa7e23c0205',
+    resave: true,
+    saveUninitialized: true
+}))
 
 // change default views directory
 Server.set('views', `${__dirname}/views/`)
