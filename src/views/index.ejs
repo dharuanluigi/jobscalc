@@ -38,13 +38,17 @@
                 Você não tem horas livres
             <% } %> 
           </span>
-          <a href="/profile" id="avatar-profile">
-            <p><%= profile.name %> <span>Ver perfil</span></p>
-            <img
-              src="<%= profile.avatar %>"
-              alt="<%= profile.name %> avatar"
-            />
-          </a>
+          <div id="nav-menu">
+            <a href="/profile" id="avatar-profile">
+              <p><%= profile.name %></p>
+              <img
+                src="<%= profile.avatar %>"
+                alt="<%= profile.name %> avatar"
+              />
+            </a>
+            <a href="/profile">Ver perfil</a>
+            <a href="/logout">Sair</a>
+          </div>
         </section>
 
         <div class="separator"></div>
