@@ -9,6 +9,7 @@ router.get('/', DashboardController.loginPage)
 router.get('/profile', ProfileController.profilePage)
 router.get('/job', JobController.addJobPage)
 router.get('/job/:id', JobController.editJobPage)
+router.get('/logout', DashboardController.logoutUser)
 
 // POST
 router.post('/', DashboardController.index)
