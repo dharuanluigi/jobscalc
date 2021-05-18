@@ -17,7 +17,7 @@ module.exports = {
                 ...req.body,
                 created_at: Date.now()
             }
-            await Job.add(JobUtils.dataNormalizerInsert(JobUtils.calcDueDate(await JobUtils.calcBudget(job))))
+            await Job.add(JobUtils.dataNormalizerInsert(JobUtils.calcDueDate(await JobUtils.calcBudget(job, req.session.data.user_id))))
             
             return res.redirect('/')
         }
@@ -38,7 +38,7 @@ module.exports = {
                 created_at: old_job.created_at
             }
             
-            await Job.edit(JobUtils.dataNormalizerUpdate(JobUtils.calcDueDate(await JobUtils.calcBudget(new_job))), req.params.id)
+            await Job.edit(JobUtils.dataNormalizerUpdate(JobUtils.calcDueDate(await JobUtils.calcBudget(new_job, req.session.data.user_id))), req.params.id)
 
             return res.redirect(`/job/${req.params.id}`)
         }
