@@ -17,5 +17,5 @@ function checkFields() {
 }
 
 function isEmpty(field) {
-    return field.value == ''
+    return field.value == '' || field.value.trim().length == 0
 }
