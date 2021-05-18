@@ -42,5 +42,10 @@ module.exports = {
         else {
            return res.render('login')
         }
+    },
+    logoutUser(req, res) {
+        req.session.destroy((e) => {
+            return res.redirect('/')
+        })
     }
 }
