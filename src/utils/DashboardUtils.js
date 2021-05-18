@@ -11,7 +11,7 @@ module.exports = {
         // calc freeTime
         let freeTime = profile_data.hours_per_day
         jobs.forEach((job) => {
-            freeTime -= job.daily_hours
+            freeTime -= job.status === 'done' ? 0 : job.daily_hours
         })
 
         return freeTime < 0 ? 0 : freeTime
