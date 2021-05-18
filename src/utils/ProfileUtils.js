@@ -1,8 +1,8 @@
 module.exports = {
     dataNormalizer(profile_data){
         return {
-            name: profile_data.name,
-            avatar: profile_data.avatar,
+            name: profile_data.name.trim(),
+            avatar: profile_data.avatar.trim(),
             monthly_budget: Number(profile_data['monthly-budget']),
             hours_per_day: Number(profile_data['hours-per-day']),
             days_per_week: Number(profile_data['days-per-week']),
