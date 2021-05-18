@@ -51,9 +51,9 @@ module.exports = {
             status: delivery_day > 0 ? 'progress' : 'done'
         }
     },
-    async calcBudget(job_data) {
+    async calcBudget(job_data, user_id) {
         // get value hour and * for total hours
-        const profile_data = await ProfileController.getProfileData()
+        const profile_data = await ProfileController.getProfileData(user_id)
         return {
             ...job_data,
             budget: Number(job_data['total-hours']) * profile_data.hour_value
