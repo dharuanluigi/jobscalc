@@ -28,11 +28,16 @@
 /* 
  * avatar
 /* -------------------------------------------------- */
+#nav-menu a {
+  color: var(--color-white);
+  font-size: 0.8em;
+  margin-left: 4px;
+}
+
 #avatar-profile {
   display: flex;
   align-items: center;
   color: var(--color-white);
-  text-decoration: none;
 
   font-family: IBM Plex Sans;
   text-align: right;
