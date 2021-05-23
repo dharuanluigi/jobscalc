@@ -47,5 +47,11 @@ module.exports = {
         req.session.destroy((e) => {
             return res.redirect('/')
         })
+    },
+    registerPage(req, res) {
+        return res.render('register')
+    },
+    register(req, res) {
+        
     }
 }
