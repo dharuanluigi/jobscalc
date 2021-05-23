@@ -10,6 +10,7 @@ router.get('/profile', ProfileController.profilePage)
 router.get('/job', JobController.addJobPage)
 router.get('/job/:id', JobController.editJobPage)
 router.get('/logout', DashboardController.logoutUser)
+router.get('/register', DashboardController.registerPage)
 
 // POST
 router.post('/', DashboardController.index)
@@ -17,5 +18,6 @@ router.post('/profile', ProfileController.updateUserData)
 router.post('/job', JobController.addNewJob)
 router.post('/job/delete/:id', JobController.delJob)
 router.post('/job/:id', JobController.editJob)
+router.post('/register', DashboardController.register)
 
 module.exports = router
