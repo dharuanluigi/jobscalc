@@ -5,44 +5,104 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#41414C" />
-  <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
-  <title>Jobscalc</title>
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+  <title>JobsCalc</title>
 
-  <link rel="stylesheet" href="/styles/pages/login.css">
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/partials/page-header.css" />
-  <link rel="stylesheet" href="/styles/partials/cards.css" />
-  <link rel="stylesheet" href="/styles/partials/buttons.css" />
-  <link rel="stylesheet" href="/styles/partials/forms.css" />
-  <link rel="stylesheet" href="/styles/partials/animations.css" />
-  <link rel="stylesheet" href="/styles/pages/profile.css" />
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/scripts/vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/styles/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/styles/fonts/iconic/css/material-design-iconic-font.min.css">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/scripts/vendor/animate/animate.css">
+  <!--===============================================================================================-->	
+    <link rel="stylesheet" type="text/css" href="/scripts/vendor/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/scripts/vendor/animsition/css/animsition.min.css">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/scripts/vendor/select2/select2.min.css">
+  <!--===============================================================================================-->	
+    <link rel="stylesheet" type="text/css" href="/scripts/vendor/daterangepicker/daterangepicker.css">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/styles/util.css">
+    <link rel="stylesheet" type="text/css" href="/styles/pages/login.css">
+  <!--===============================================================================================-->
 
 
 </head>
 <body>
-  <section id="form-login">
-    <form id="login_data" method="POST" action="/">
-      <div class="fields">
-        <div>
-          <label for="login">
-            Login
-            <input type="text" name="login">
-          </label>
-        </div>
-        <div>
-          <label for="password">
-            Senha
-            <input type="password" name="password" id="password">
-          </label>
-        </div>
-        <div>
-          <button class="button green" form="login_data" type="submit">
-            Entrar
-          </button>
-        </div>
-      </div>
-    </form>
-  </section>
+  <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-85 p-b-20">
+				<form class="login100-form validate-form" method="POST" action="/">
+					<span class="login100-form-title p-b-70">
+						Bem-vindo ao
+					</span>
+					<span class="login100-form-avatar">
+						<img src="/images/user_icon_white.svg" alt="avatar do usuário">
+					</span>
+
+					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+						<input class="input100" type="text" name="username">
+						<span class="focus-input100" data-placeholder="Usuário"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+						<input class="input100" type="password" name="pass">
+						<span class="focus-input100" data-placeholder="Senha"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Entrar
+						</button>
+					</div>
+
+					<ul class="login-more p-t-190">
+						<li class="m-b-8">
+							<span class="txt1">
+								Se esqueceu da senha?
+							</span>
+
+							<a href="#" class="txt2">
+								clique aqui
+							</a>
+						</li>
+
+						<li>
+							<span class="txt1">
+								Criar uma conta?
+							</span>
+
+							<a href="#" class="txt2">
+								clique aqui
+							</a>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="/scripts/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/scripts/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/scripts/vendor/bootstrap/js/popper.js"></script>
+	<script src="/scripts/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/scripts/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/scripts/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/scripts/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/scripts/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/scripts/main.js"></script>
 </body>
 </html>
