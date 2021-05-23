@@ -144,13 +144,12 @@
   [ login ]*/
   
   .limiter {
-    width: 100%;
     margin: 0 auto;
   }
   
   .container-login100 {
     width: 100%;  
-    min-height: 100vh;
+    min-height: 69vh;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -160,12 +159,12 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
-    background: #fff;  
+    background: #E5E5E5;
   }
   
   .wrap-login100 {
     width: 390px;
-    background: #fff;
+    background: #E5E5E5;
   }
   
   
@@ -180,22 +179,25 @@
     display: block;
     font-family: Poppins-Bold;
     font-size: 39px;
-    color: #333333;
+    color: #E5E5E5;
     line-height: 1.2;
     text-align: center;
   }
   
   .login100-form-avatar {
     display: block;
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 10px auto -5px auto;
+    background-color: #E5E5E5;
   }
   
   .login100-form-avatar img {
-    width: 100%;
+    margin-top: 15px;
+    width: 70%;
+    align-items: baseline;
   }
   
   /*------------------------------------------------------------------
@@ -303,7 +305,7 @@
   .login100-form-btn {
     font-family: Poppins-Medium;
     font-size: 16px;
-    color: #fff;
+    color: #E5E5E5;
     line-height: 1.2;
     text-transform: uppercase;
   
@@ -421,7 +423,6 @@
   }
   
   .login-more li::before {
-    content: "";
     display: block;
     position: absolute;
     width: 5px;
