@@ -27,29 +27,36 @@
   <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/styles/util.css">
     <link rel="stylesheet" type="text/css" href="/styles/pages/login.css">
+	<link rel="stylesheet" href="/styles/main.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/partials/page-header-login.css" />
   <!--===============================================================================================-->
-
 
 </head>
 <body>
-  <div class="limiter">
+	<header class="login100-form-title page-header">
+		<div class="principal-title">
+			<span>
+				Bem-vindo ao
+			</span>
+			<span class="JobsCalc">
+				JobsCalc
+			</span>
+		</div>
+		<span class="login100-form-avatar">
+			<img src="/images/user_icon_white.svg" alt="avatar do usuário">
+		</span>
+	</header>
+	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100 p-t-85 p-b-20">
+			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST" action="/">
-					<span class="login100-form-title p-b-70">
-						Bem-vindo ao
-					</span>
-					<span class="login100-form-avatar">
-						<img src="/images/user_icon_white.svg" alt="avatar do usuário">
-					</span>
-
 					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
-						<input class="input100" type="text" name="username">
+						<input class="input100" type="text" name="login">
 						<span class="focus-input100" data-placeholder="Usuário"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="password">
 						<span class="focus-input100" data-placeholder="Senha"></span>
 					</div>
 
@@ -84,7 +91,6 @@
 			</div>
 		</div>
 	</div>
-	
 
 	<div id="dropDownSelect1"></div>
 	
