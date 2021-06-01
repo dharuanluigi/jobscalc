@@ -20,6 +20,7 @@ module.exports = {
     },
     async index(req, res) {
         const user_data_login = await ProfileController.login(req.body)
+        
         if(user_data_login) {
             // save login in a session
             req.session.data = {
@@ -31,7 +32,8 @@ module.exports = {
            return res.render('index', { profile: data.profile_data, jobs: data.jobs, status_panel: data.status_panel })
         }
         else {
-            return res.send('Credênciais inválidas!')
+            // add frindly message return to user
+            return res.render('login', { msg: 'Login/Senha incorretos!' })
         }
     },
     async loginPage(req, res) {
@@ -40,7 +42,8 @@ module.exports = {
             return res.render('index', { profile: data.profile_data, jobs: data.jobs, status_panel: data.status_panel })
         }
         else {
-           return res.render('login')
+            // just start variable
+           return res.render('login', { msg: '' })
         }
     },
     logoutUser(req, res) {
@@ -52,6 +55,5 @@ module.exports = {
         return res.render('register')
     },
     register(req, res) {
-        
     }
 }
