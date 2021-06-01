@@ -40,7 +40,7 @@ module.exports = {
         const profile = await connector.get(`
             SELECT id, name FROM Profile
             WHERE login = "${login_data.login}"
-            AND password = ${login_data.password}
+            AND password = "${login_data.password}"
         `)
 
         await connector.close()
