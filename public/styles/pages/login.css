@@ -437,3 +437,9 @@
     transform: translateY(-50%);
     left: 0;
   }
+  div#login_error {
+    margin-top: 20px;
+    color: var(--color-delete);
+    font: 1.1em bold;
+    font-family: Poppins-Regular, sans-serif;
+  }
