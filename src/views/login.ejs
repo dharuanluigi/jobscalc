@@ -27,9 +27,9 @@
   <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/styles/util.css">
     <link rel="stylesheet" type="text/css" href="/styles/pages/login.css">
-	<link rel="stylesheet" href="/styles/main.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/main.css" />
 	<link rel="stylesheet" type="text/css" href="/styles/partials/page-header-login.css" />
-	<link rel="stylesheet" href="/styles/partials/animations.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/partials/animations.css" />
   <!--===============================================================================================-->
 
 </head>
@@ -65,6 +65,11 @@
 						<button class="login100-form-btn">
 							Entrar
 						</button>
+						<div id="login_error">
+							<% if(msg) { %>
+								<%= msg %> 
+							<% } %>
+						</div>
 					</div>
 
 					<ul class="login-more p-t-190">
@@ -83,7 +88,7 @@
 								Criar uma conta?
 							</span>
 
-							<a href="/register" class="txt2">
+							<a href="#" class="txt2">
 								clique aqui
 							</a>
 						</li>
@@ -110,6 +115,6 @@
 <!--===============================================================================================-->
 	<script src="/scripts/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="/scripts/main.js"></script>
+	<script src="/scripts/login.js"></script>
 </body>
 </html>
