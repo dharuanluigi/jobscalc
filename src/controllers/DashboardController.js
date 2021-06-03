@@ -52,8 +52,16 @@ module.exports = {
         })
     },
     registerPage(req, res) {
-        return res.render('register')
+        return res.render('register', {msg: ''})
     },
-    register(req, res) {
+    async registerUser(req, res) {
+        const profile = await ProfileController.logon(req.body)
+        
+        if(profile) {
+            return res.redirect('/')
+        }
+        else {
+            return res.render('register', {msg: 'Usuário já existe!'})
+        }
     }
 }
