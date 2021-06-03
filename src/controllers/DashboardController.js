@@ -63,5 +63,8 @@ module.exports = {
         else {
             return res.render('register', {msg: 'Usuário já existe!'})
         }
+    },
+    pageNotFound(req, res) {
+        return res.render('404-page')
     }
 }
