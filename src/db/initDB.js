@@ -22,6 +22,7 @@ const initDB_DEV = {
                 vacation_per_year INT,
                 hour_value FLOAT,
                 login TEXT,
+                email TEXT,
                 password TEXT
             );
         `)
@@ -42,6 +43,7 @@ const initDB_DEV = {
                 0,
                 0,
                 "adm",
+                "dharuan@email.com",
                 123
           );
         `)
