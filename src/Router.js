@@ -18,6 +18,6 @@ router.post('/profile', ProfileController.updateUserData)
 router.post('/job', JobController.addNewJob)
 router.post('/job/delete/:id', JobController.delJob)
 router.post('/job/:id', JobController.editJob)
-router.post('/register', DashboardController.register)
+router.post('/register', DashboardController.registerUser)
 
 module.exports = router
