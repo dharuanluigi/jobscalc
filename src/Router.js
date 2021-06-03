@@ -11,6 +11,7 @@ router.get('/job', JobController.addJobPage)
 router.get('/job/:id', JobController.editJobPage)
 router.get('/logout', DashboardController.logoutUser)
 router.get('/register', DashboardController.registerPage)
+router.get('/*', DashboardController.pageNotFound)
 
 // POST
 router.post('/', DashboardController.index)
