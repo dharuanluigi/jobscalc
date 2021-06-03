@@ -6,8 +6,13 @@ const GeneralUtils = require('../utils/Utils')
 
 module.exports = {
     async profilePage(req, res) {
-        const profile_data = await Profile.get(req.session.data.user_id)
-        return res.render('profile', { profile: profile_data })
+        if(req.session.data) {
+            const profile_data = await Profile.get(req.session.data.user_id)
+            return res.render('profile', { profile: profile_data })
+        }
+        else {
+            return res.redirect('/')
+        }
     },
     async updateUserData(req, res) {
         // verify if fields had empty data
