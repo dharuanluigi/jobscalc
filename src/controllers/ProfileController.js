@@ -1,3 +1,4 @@
+const { Database } = require('sqlite3')
 const Profile = require('../models/Profile')
 const ProfileUtils = require('../utils/ProfileUtils')
 // functions that are used one more place, like check fields.
@@ -24,5 +25,17 @@ module.exports = {
     async login(login_data) {
         const login = await Profile.login(login_data)
         return login
+    },
+    async logon(logon_data) {
+        
+        const noHasProfile = await Profile.hasLogin(logon_data)
+
+        if(noHasProfile) {
+            await Profile.logon(logon_data)
+            return true
+        }
+        else {
+            return false
+        }
     }
 }
