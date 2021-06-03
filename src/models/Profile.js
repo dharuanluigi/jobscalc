@@ -14,6 +14,17 @@ module.exports = {
 
         return profile_data
     },
+    async hasLogin(logon_data) {
+        // validated if login is already exist
+        const connector = await Database()
+
+        const profile = await connector.get(`
+            SELECT * FROM Profile
+            WHERE login = "${logon_data.login}";
+        `)
+        
+        return profile === undefined
+    },
     async update(profile_data, user_id) {
 
         let profile_data_normalized = ProfileUtils.dataNormalizer(profile_data)
@@ -46,5 +57,24 @@ module.exports = {
         await connector.close()
 
         return profile
+    },
+    async logon(logon_data) {
+        const connector = await Database()
+
+        const insert = await connector.run(`
+            INSERT INTO Profile VALUES (
+                NULL,
+                "${logon_data.login}",
+                "https://source.unsplash.com/random/800x600",
+                0,
+                0,
+                0,
+                0,
+                0,
+                "${logon_data.login}",
+                "${logon_data.mail}",
+                "${logon_data.password}"
+            );
+        `)
     }
 }
