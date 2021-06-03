@@ -70,6 +70,11 @@
 						<button class="login100-form-btn">
 							Registrar
 						</button>
+						<div id="login_error">
+							<% if(msg) { %>
+								<%= msg %> 
+							<% } %>
+						</div>
 					</div>
 				</form>
 			</div>
