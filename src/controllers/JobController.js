@@ -5,11 +5,21 @@ const GeneralUtils = require('../utils/Utils')
 
 module.exports = {
     addJobPage(req, res) {
-        return res.render('job')
+        if(req.session.data) {
+            return res.render('job')
+        }
+        else {
+            return res.redirect('/')
+        }
     },
     async editJobPage(req, res) {
-        const job = await Job.get(req.params.id)
+        if(req.session.data) {
+            const job = await Job.get(req.params.id)
             return res.render('job-edit', { job })
+        }
+        else {
+            return res.redirect('/')
+        }
     },
     async addNewJob(req, res) {
         if(!GeneralUtils.checkFields(req.body)) {
