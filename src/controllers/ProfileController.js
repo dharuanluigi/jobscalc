@@ -16,7 +16,7 @@ module.exports = {
     },
     async updateUserData(req, res) {
         // verify if fields had empty data
-        if(!GeneralUtils.checkFields(req.body)) {
+        if(!GeneralUtils.checkFields(req.body) && GeneralUtils.nameLengthVerif(req.body)) {
             await Profile.update(ProfileUtils.calcHourValue(req.body), req.session.data.user_id)
             return res.redirect('/profile')
         } 
