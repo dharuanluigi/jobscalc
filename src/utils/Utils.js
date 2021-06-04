@@ -11,4 +11,7 @@ module.exports = {
 
         return isEmpty
     },
+    nameLengthVerif(fields) {
+        return fields.name.trim().length <= 30
+    }
 }
