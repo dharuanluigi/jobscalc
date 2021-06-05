@@ -80,5 +80,27 @@ module.exports = {
         `)
 
         await connector.close()
-    }
+    },
+    async resetPassword(profile_data, pass) {
+        
+        const connector = await Database()
+
+        await connector.run(`
+            UPDATE Profile SET
+            password = "${pass}"
+            WHERE login = "${profile_data.login}"
+        `)
+
+        // clear pass ref
+        pass = null
+
+        const mail = await connector.get(`
+            SELECT email FROM Profile
+            WHERE login = "${profile_data.login}"
+        `)
+
+        await connector.close()
+
+        return mail
+    },
 }
