@@ -22,7 +22,7 @@ module.exports = {
         }
     },
     async addNewJob(req, res) {
-        if(!GeneralUtils.checkFields(req.body)) {
+        if(!GeneralUtils.checkFields(req.body) && GeneralUtils.nameLengthVerif(req.body)) {
             const job = {
                 ...req.body,
                 created_at: Date.now()
@@ -40,7 +40,7 @@ module.exports = {
         return res.redirect('/')
     },
     async editJob(req, res) {
-        if(!GeneralUtils.checkFields(req.body)) {
+        if(!GeneralUtils.checkFields(req.body) && GeneralUtils.nameLengthVerif(req.body)) {
             const old_job = await Job.get(req.params.id)
 
             const new_job = {

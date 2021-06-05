@@ -14,8 +14,18 @@ function checkFields() {
     if(empty_value) {
         window.alert('Todos os campos devem ser preenchidos!')
     }
+
+    const inputName = document.getElementById('name')
+    if(nameLengthVer(inputName)) {
+        window.alert('O nome não pode ter mais que 30 caracteres!')
+    }
 }
 
 function isEmpty(field) {
     return field.value == '' || field.value.trim().length == 0
+}
+
+function nameLengthVer(field) {
+    const content = field.value
+    return content.trim().length > 30
 }
