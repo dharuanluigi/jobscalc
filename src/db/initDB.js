@@ -75,8 +75,8 @@ const initDB_DEV = {
             INSERT INTO Jobs VALUES (
                 NULL,
                 "Pizzaria Guloso OverPower",
-                0,
-                0,
+                1,
+                1,
                 1620517789137,
                 0,
                 0,
