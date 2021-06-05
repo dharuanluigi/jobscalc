@@ -1,3 +1,4 @@
+require('dotenv').config()
 const Profile = require('../models/Profile')
 const ProfileUtils = require('../utils/ProfileUtils')
 // functions that are used one more place, like check fields.
@@ -68,7 +69,7 @@ module.exports = {
             secure: false,
             auth: {
                 user: 'online.business.com.br@gmail.com',
-                pass: 'yqxnzzclhuniudvc'
+                pass: process.env.MAIL_PASSWORD
             }
         })
 
