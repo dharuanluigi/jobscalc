@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const session = require('express-session')
 const routes = require('./Router')
@@ -9,7 +10,7 @@ Server.use(express.urlencoded({ extended: true }))
 
 // config session
 Server.use(session({
-    secret: '5d44540598c8ab90f4b75de58618b1dcc3967cf6498c439bdce14fa7e23c0205',
+    secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true
 }))
