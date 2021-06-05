@@ -1,8 +1,9 @@
-const { Database } = require('sqlite3')
 const Profile = require('../models/Profile')
 const ProfileUtils = require('../utils/ProfileUtils')
 // functions that are used one more place, like check fields.
 const GeneralUtils = require('../utils/Utils')
+const nodemailer = require('nodemailer')
+const passGen = require('password-generator')
 
 module.exports = {
     async profilePage(req, res) {
@@ -13,6 +14,9 @@ module.exports = {
         else {
             return res.redirect('/')
         }
+    },
+    resetPasswordPage(req, res) {
+        return res.render('reset-password', { msg: '' })
     },
     async updateUserData(req, res) {
         // verify if fields had empty data
@@ -42,5 +46,40 @@ module.exports = {
         else {
             return false
         }
-    }
+    },
+    async resetPassword(req, res) {
+        
+        let pass = passGen(8, false)
+        const mail = await Profile.resetPassword(req.body, pass)
+
+        if(mail) {
+            await module.exports.sendMailService(mail.email, pass).catch(console.error)
+            return res.render('reset-password', { msg: 'Senha enviada ao e-mail cadastrado!' })
+        }
+        else {
+            return res.render('reset-password', { msg: 'Falha ao processar pedido!' })
+        }
+    },
+    async sendMailService(user_mail, pass) {
+        
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 587,
+            secure: false,
+            auth: {
+                user: 'online.business.com.br@gmail.com',
+                pass: 'yqxnzzclhuniudvc'
+            }
+        })
+
+        let info = await transporter.sendMail({
+            from: 'JobsCalc bot <online.business.com.br@gmail.com>',
+            to: `${user_mail}`,
+            subject:  'Nova senha de acesso',
+            text: `Aqui está sua nova senha de acesso: ${pass}`
+        })
+
+        // clear pass ref
+        pass = null
+    },
 }
