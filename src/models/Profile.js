@@ -23,6 +23,8 @@ module.exports = {
             WHERE login = "${logon_data.login}";
         `)
         
+        await connector.close()
+
         return profile === undefined
     },
     async update(profile_data, user_id) {
@@ -61,14 +63,14 @@ module.exports = {
     async logon(logon_data) {
         const connector = await Database()
 
-        const insert = await connector.run(`
+        await connector.run(`
             INSERT INTO Profile VALUES (
                 NULL,
                 "${logon_data.login}",
                 "https://source.unsplash.com/random/800x600",
                 0,
-                0,
-                0,
+                1,
+                1,
                 0,
                 0,
                 "${logon_data.login}",
@@ -76,5 +78,7 @@ module.exports = {
                 "${logon_data.password}"
             );
         `)
+
+        await connector.close()
     }
 }
